@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+  <meta name="robots" content="index, follow">
+  <!-- title -->
+  
+    
+  <title>CSS 如何使flexbox中的子元素高度适应内容而不是适应其容器的100%高度 - 山海</title>
+    
+  
+  
+  <!-- open graph -->
+  <meta name="description" content="Flex容器是一个包含了一系列flex子项的父元素。 Flex子项是flex容器内的每一个子元素。– 默认情况下，flex子项的高度会填满其父容器的可用高度，即子项会被拉伸至与容器的高度相等。然而，有时候我们希望子项的高度能够根据内容的高度自适应，这就需要使用一些特殊的CSS属性和技巧。  使用align-items属性 align-items属性可以用于指定在交叉轴上如何对齐flex子项。默认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 如何使flexbox中的子元素高度适应内容而不是适应其容器的100%高度">
+<meta property="og:url" content="https://littlewhit-001.github.io/zhaozjblog.github.io/2024/07/25/CSS-%E5%A6%82%E4%BD%95%E4%BD%BFflexbox%E4%B8%AD%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0%E9%AB%98%E5%BA%A6%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9%E8%80%8C%E4%B8%8D%E6%98%AF%E9%80%82%E5%BA%94%E5%85%B6%E5%AE%B9%E5%99%A8%E7%9A%84100-%E9%AB%98%E5%BA%A6/index.html">
+<meta property="og:site_name" content="山海">
+<meta property="og:description" content="Flex容器是一个包含了一系列flex子项的父元素。 Flex子项是flex容器内的每一个子元素。– 默认情况下，flex子项的高度会填满其父容器的可用高度，即子项会被拉伸至与容器的高度相等。然而，有时候我们希望子项的高度能够根据内容的高度自适应，这就需要使用一些特殊的CSS属性和技巧。  使用align-items属性 align-items属性可以用于指定在交叉轴上如何对齐flex子项。默认">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-25T09:41:14.000Z">
+<meta property="article:modified_time" content="2024-07-25T09:45:10.069Z">
+<meta property="article:author" content="zzj">
+<meta name="twitter:card" content="summary">
+  <!-- canonical -->
+  
+  <link rel="canonical" href="https://littlewhit-001.github.io/zhaozjblog.github.io/2024/07/25/CSS-如何使flexbox中的子元素高度适应内容而不是适应其容器的100-高度/">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- CSS -->
+  
+<link rel="stylesheet" href="/zhaozjblog.github.io/css/reset.css">
+
+  
+<link rel="stylesheet" href="/zhaozjblog.github.io/css/style.css">
+
+  
+<link rel="stylesheet" href="/zhaozjblog.github.io/css/markdown.css">
+
+  
+<link rel="stylesheet" href="/zhaozjblog.github.io/css/fonts.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div class="paper">
+            <div class="paper-main">
+                
+                    <div class="post-header">
+    <a class="logo" href="/zhaozjblog.github.io/">山海</a>
+    <!-- <div class="logo"><a href="/" title="Len"><img src="/img/logo" alt="Len" aria-label="logo" height="20"></a></div> -->
+        <ul class="nav">
+            
+            <li><a href="/zhaozjblog.github.io/">Home</a></li>
+            
+            <li><a href="/zhaozjblog.github.io/about">About</a></li>
+            
+            <li><a href="/zhaozjblog.github.io/archives">Archives</a></li>
+            
+        </ul>
+
+
+    </a>
+</div>
+
+                
+                <div class="post-main">
+    
+        <div class="post-main-title">
+            CSS 如何使flexbox中的子元素高度适应内容而不是适应其容器的100%高度
+        </div>
+        <div class="post-meta">
+            2024-07-25 ｜ 
+            
+        </div>
+        <!-- 圆角分类 -->
+        <!-- <div class="tags"> -->
+            <!--  -->
+        <!-- </div> -->
+        <div class="post-md">
+            <ul>
+<li>Flex容器是一个包含了一系列flex子项的父元素。</li>
+<li>Flex子项是flex容器内的每一个子元素。<br>– 默认情况下，flex子项的高度会填满其父容器的可用高度，即子项会被拉伸至与容器的高度相等。然而，有时候我们希望子项的高度能够根据内容的高度自适应，这就需要使用一些特殊的CSS属性和技巧。</li>
+</ul>
+<h3 id="使用align-items属性"><a href="#使用align-items属性" class="headerlink" title="使用align-items属性"></a>使用align-items属性</h3><ul>
+<li>align-items属性可以用于指定在交叉轴上如何对齐flex子项。默认值为stretch，使得flex子项的高度与容器的高度相等。我们可以使用其他的值，如flex-start、flex-end、center等，来实现不同的对齐方式。</li>
+<li>下面是一个示例，展示如何使用align-items: flex-start来使flex子项的高度根据内容自适应：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.flex-item</span> &#123;</span><br><span class="line">  // 其他样式...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+    
+<!-- tags -->
+
+</div>
+                <div class="footer">
+    <span>Copyright © <script>document.write(new Date().getFullYear())</script> 山海</span>
+</div>
+
+<link rel="stylesheet" href="/zhaozjblog.github.io/css/a11y-dark.min.css">
+
+
+<script src="/zhaozjblog.github.io/js/highlight.min.js"></script>
+
+
+<script src="/zhaozjblog.github.io/js/highlightjs-line-numbers.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+
+            </div>
+        </div>
+    </body>
+</html>
